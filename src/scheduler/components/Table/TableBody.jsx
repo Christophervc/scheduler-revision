@@ -1,17 +1,19 @@
 import useRevisionsStore from "../../../store/useRevisionStore";
-import  TableRow  from "./TableRow";
+import TableRow from "./TableRow";
 
- const TableBody = () => {
-  const {revisions, deleteRevision} = useRevisionsStore();
+const TableBody = () => {
+  const { revisions, deleteRevision } = useRevisionsStore();
   return (
     <tbody className="divide-y divide-gray-200">
       {revisions.map((revision) => (
-        <TableRow  key={revision.id} revision={revision} onDelete={deleteRevision} />
+        <TableRow
+          key={revision.id}
+          revision={revision}
+          onDelete={deleteRevision}
+        />
       ))}
     </tbody>
   );
 };
 
-
-
-export default TableBody
+export default TableBody;

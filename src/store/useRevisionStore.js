@@ -5,7 +5,7 @@ const useRevisionsStore = create((set) => ({
     {
       id: 1,
       title: "Primer mantenimiento programado",
-      date: "2024-06-01",
+      date: "01-06-2024",
       startTime: "14:00",
       endTime: "16:00",
       status: "Malo",
@@ -13,7 +13,7 @@ const useRevisionsStore = create((set) => ({
     {
       id: 2,
       title: "Segundo mantenimiento programado",
-      date: "2024-12-01",
+      date: "01-12-2024",
       startTime: "14:00",
       endTime: "16:00",
       status: "Regular",

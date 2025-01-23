@@ -3,6 +3,8 @@ import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
+import { esES } from "@mui/x-date-pickers/locales";
+import "dayjs/locale/es";
 import {
   FormControl,
   InputLabel,
@@ -18,10 +20,10 @@ export const RevisionForm = ({ onSubmit, onClose, initialData = null }) => {
     title: initialData?.title || "",
     date: initialData?.date ? dayjs(initialData.date) : null,
     startTime: initialData?.startTime
-      ? dayjs(`2024-01-01T${initialData.startTime}`)
+      ? dayjs(initialData.startTime)
       : null,
     endTime: initialData?.endTime
-      ? dayjs(`2024-01-01T${initialData.endTime}`)
+      ? dayjs(initialData.endTime)
       : null,
   });
 
@@ -30,7 +32,7 @@ export const RevisionForm = ({ onSubmit, onClose, initialData = null }) => {
     onSubmit({
       status: formData.status,
       title: formData.title,
-      date: formData.date?.format("YYYY-MM-DD"),
+      date: formData.date?.format("DD-MM-YYYY"),
       startTime: formData.startTime?.format("HH:mm"),
       endTime: formData.endTime?.format("HH:mm"),
     });
@@ -41,7 +43,11 @@ export const RevisionForm = ({ onSubmit, onClose, initialData = null }) => {
   const statusOptions = ["Bueno", "Regular", "Malo"];
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <LocalizationProvider
+      dateAdapter={AdapterDayjs}
+      adapterLocale="es"
+      localeText={{ esES, clearButtonLabel: "Empty", todayButtonLabel: "Now" }}
+    >
       <form onSubmit={handleSubmit} className="space-y-4">
         <TextField
           label="Título"

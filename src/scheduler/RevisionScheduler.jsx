@@ -2,18 +2,18 @@ import { Plus } from "lucide-react";
 import { useState } from "react";
 import { Modal } from "./components/Modal/Modal";
 import { RevisionForm } from "./components/Form/RevisionForm";
-import RevisionTable  from "./components/Table/RevisionTable";
+import RevisionTable from "./components/Table/RevisionTable";
 import useRevisionsStore from "../store/useRevisionStore";
 
 const RevisionScheduler = () => {
-  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const addRevision = useRevisionsStore((state) => state.addRevision);
   const handleAdd = (formData) => {
     addRevision(formData);
     setIsModalOpen(false);
-  }
-  
+  };
+
+ 
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <div className="flex justify-between items-center mb-6">

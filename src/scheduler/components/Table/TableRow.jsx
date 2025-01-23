@@ -2,8 +2,10 @@ import { SquarePen, Trash2 } from "lucide-react";
 import useRevisionsStore from "../../../store/useRevisionStore";
 
 const TableRow = ({
-  revision: {id, title, date, startTime, endTime, status },
+  revision: { id, title, date, startTime, endTime, status },
 }) => {
+  const { deleteRevision } = useRevisionsStore();
+
   const getStatusColor = (status) => {
     switch (status) {
       case "Bueno":
@@ -17,8 +19,6 @@ const TableRow = ({
     }
   };
 
-  const { deleteRevision } = useRevisionsStore();
-
   return (
     <tr>
       <td className="px-6 py-4">
@@ -31,7 +31,7 @@ const TableRow = ({
       <td className="px-6 py-4">
         <div className="flex gap-3">
           <button
-            onClick={() => console.log("editar")}
+            onClick={() => console.log("edit")}
             className="text-gray-600 hover:text-cyan-600"
           >
             <SquarePen className="w-5 h-5" />
