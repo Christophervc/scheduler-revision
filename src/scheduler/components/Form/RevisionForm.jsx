@@ -3,7 +3,13 @@ import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 import { useState } from "react";
 
 export const RevisionForm = ({ onSubmit, onClose, initialData = null }) => {
@@ -39,6 +45,7 @@ export const RevisionForm = ({ onSubmit, onClose, initialData = null }) => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <TextField
           label="Título"
+          size="small"
           fullWidth
           value={formData.title}
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
@@ -48,9 +55,11 @@ export const RevisionForm = ({ onSubmit, onClose, initialData = null }) => {
         <DatePicker
           label="Fecha"
           value={formData.date}
+          className="w-full"
           onChange={(newValue) => setFormData({ ...formData, date: newValue })}
-          TextField={(params) => <TextField {...params} fullWidth />}
+          TextField={(params) => <TextField {...params} />}
           required
+          slotProps={{ textField: { size: "small" } }}
         />
 
         <div className="grid grid-cols-2 gap-4">
@@ -62,6 +71,7 @@ export const RevisionForm = ({ onSubmit, onClose, initialData = null }) => {
             }
             TextField={(params) => <TextField {...params} fullWidth />}
             required
+            slotProps={{ textField: { size: "small" } }}
           />
 
           <TimePicker
@@ -72,6 +82,7 @@ export const RevisionForm = ({ onSubmit, onClose, initialData = null }) => {
             }
             TextField={(params) => <TextField {...params} fullWidth />}
             required
+            slotProps={{ textField: { size: "small" } }}
           />
 
           <FormControl size="small" className="col-span-2">
